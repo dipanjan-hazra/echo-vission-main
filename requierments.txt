@@ -16,3 +16,6 @@ pillow
 
 streamlit
 
+
+librosa #cutting or  preprocess
+resemblyzer #decode -encodeing   
