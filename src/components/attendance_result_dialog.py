@@ -20,12 +20,15 @@ def show_attendance_result(df,logs):
     with col2:
      
         if st.button('Confirm & Save', width='stretch', type='primary'):
-
             st.write("BUTTON CLICKED")
 
-            create_attendance(logs)
+            result = create_attendance(logs)
 
-            st.write("INSERT FINISHED")
+            st.write("RESULT:")
+            st.write(result)
+
+            st.write("LOGS:")
+            st.write(logs)
 
             st.stop()
 
