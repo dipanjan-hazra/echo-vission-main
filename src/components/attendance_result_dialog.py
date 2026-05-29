@@ -1,6 +1,7 @@
 import streamlit as  st
 
 from src.database.db import create_attendance
+import time
 
 
 
@@ -26,10 +27,8 @@ def show_attendance_result(df,logs):
             try:
                 response = create_attendance(logs)
 
-                st.session_state.attendance_images = []
-                st.session_state.voice_attendance_results = None
                 st.write(response)
-                st.rerun()
+                st.stop()
 
             except Exception as e:
                 st.exception(e)
