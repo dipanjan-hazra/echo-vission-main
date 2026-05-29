@@ -6,7 +6,7 @@ import io
 
 @st.dialog('Share class link')
 def share_subject_dialog(name,code,join_code):
-    app_domain="Echo-vission-main.streamlit.app"
+    app_domain="echo-vission-main.streamlit.app"
     join_url = f"{app_domain}/?join-code={join_code}"
     
     st.header("scan to join")
