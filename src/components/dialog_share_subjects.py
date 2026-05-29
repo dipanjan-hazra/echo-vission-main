@@ -5,9 +5,9 @@ import segno
 import io
 
 @st.dialog('Share class link')
-def share_subject_dialog(name,code):
+def share_subject_dialog(name,code,join_code):
     app_domain="http://localhost:8501/"
-    join_url = f"{app_domain}/?join-code={code}"
+    join_url = f"{app_domain}?join-code={join_code}"
     
     st.header("scan to join")
     qr =segno.make(join_url)
@@ -20,7 +20,7 @@ def share_subject_dialog(name,code):
     with col1: 
         st.markdown("### copy link")
         st.code(join_url,language='text')
-        st.code(code,language='text')
+        st.code(join_code,language='text')
         st.info('Copy this  link  to share !')
     
     with col2:

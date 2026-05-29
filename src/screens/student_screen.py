@@ -11,9 +11,9 @@ from src.pipelines.voicepipeline import get_voice_embedding
 from src.database.db import get_all_students,create_student
 import time
 
+from src.screens.student_dashboard import student_dashboard
 
-def student_dashboard():
-    st.header('Dashboard here')
+
 
 
 def student_screen():
