@@ -18,26 +18,21 @@ def show_attendance_result(df,logs):
 
 
     with col2:
-     
-        if st.button('Confirm & Save', width='stretch', type='primary'):
-            if st.session_state.get("attendance_saved"):
-                st.warning("Attendance already saved")
-                return
-
+        if st.button(
+            'Confirm & Save',
+            width='stretch',
+            type='primary'
+        ):
             try:
-                create_attendance(logs)
-
-                st.session_state.attendance_saved = True
-
-                st.toast("Attendance taken")
+                response = create_attendance(logs)
 
                 st.session_state.attendance_images = []
                 st.session_state.voice_attendance_results = None
-
+                st.write(response)
                 st.rerun()
 
             except Exception as e:
-                st.error(f"Sync failed: {e}")
+                st.exception(e)
 
 @st.dialog("Attendance Reports")
 def attendance_result_dialog(df,logs):
