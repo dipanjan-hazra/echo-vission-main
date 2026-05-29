@@ -10,6 +10,8 @@ from src.components.add_photos_dialog import add_photos_dialog
 import numpy as  np
 import pandas as pd
 from datetime import datetime
+from zoneinfo import ZoneInfo
+
 from  src.database.config import supabase
 from src.components.attendance_result_dialog import  attendance_result_dialog
 
@@ -148,7 +150,7 @@ def teacher_tab_take_attendance():
 
                     results, attendance_to_log  = [], []
 
-                    current_timestamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+                    current_timestamp = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%dT%H:%M:%S")
 
 
                     for node in enrolled_students:

@@ -25,14 +25,19 @@ def show_attendance_result(df,logs):
             type='primary'
         ):
             try:
-                response = create_attendance(logs)
+                create_attendance(logs)
+                st.success("Attendance taken successfully")
 
-                st.write(response)
-                st.stop()
+                st.session_state.attendance_images = []
+                st.session_state.voice_attendance_results = None
+
+                time.sleep(1)
+
+                st.rerun()
 
             except Exception as e:
-                st.exception(e)
-
+                st.error(f"{e}")
+                
 @st.dialog("Attendance Reports")
 def attendance_result_dialog(df,logs):
     show_attendance_result(df,logs)
