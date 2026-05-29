@@ -1,5 +1,8 @@
 streamlit
 
+setuptools==75.8.0
+wheel
+pip
 # utilities 
 numpy
 pandas
@@ -8,7 +11,6 @@ scikit-learn
 dlib-bin
 
 git+https://github.com/ageitgey/face_recognition_models
-setuptools>=75.0.0
 
 supabase
 bcrypt
