@@ -17,6 +17,8 @@ from src.pipelines.facepipeline import predict_attendance
 
 from src.components.voice_dialog import voice_attendance_dialog
 
+from  src.components.delete_subject_warning_dialog import delete_subject_warning_dialog
+
 def teacher_dashboard():
     teacher_data=st.session_state.teacher_data
     col1,col2 =st.columns(2,vertical_alignment='center',gap='large')
@@ -204,9 +206,31 @@ def teacher_tab_manage_subject():
                 ("🕰️","Classes",sub['total_classes'])
             ]
             def share_btn():
-                if st.button(f"Share code:{sub['name']}",key=f"share_{sub['join_code']}",icon=":material/share:"):
-                    share_subject_dialog(sub['name'],sub['subject_code'],sub['join_code'])
-                st.space()
+
+                col1, col2 = st.columns(2)
+
+                with col1:
+                    if st.button(
+                        f"Share",
+                        key=f"share_{sub['subject_id']}",
+                        icon=":material/share:",width='stretch'
+                    ):
+                        share_subject_dialog(
+                            sub['name'],
+                            sub['subject_code'],
+                            sub['join_code']
+                        )
+
+                with col2:
+                    if st.button(
+                        "Delete",
+                        key=f"delete_{sub['subject_id']}",
+                        icon=":material/delete:",type='tertiary',width='stretch'
+                    ):
+                        delete_subject_warning_dialog(
+                            sub['subject_id'],
+                            sub['name']
+                        )
 
             subject_card(
                 name=sub['name'],

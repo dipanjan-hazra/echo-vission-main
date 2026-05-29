@@ -100,3 +100,15 @@ def create_attendance(logs):
 def  get_attendance_for_teacher(teacher_id):
     response = supabase.table('attendance_log').select("*,subjects!inner(*)").eq('subjects.teacher_id',teacher_id).execute()
     return response.data
+
+
+def delete_subject(subject_id):
+        response = (
+            supabase
+            .table("subjects")
+            .delete()
+            .eq("subject_id", subject_id)
+            .execute()
+        )
+
+        return True

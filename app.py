@@ -10,6 +10,10 @@ from src.components.auto_enroll_dialog import auto_enroll_dialog
 
 def main():
     
+    st.set_page_config(
+        page_icon='https://i.ibb.co/PsVd1Dtz/calendar-1.png',
+        page_title='EchoVision - Ai Attendance '
+    )
 
     if 'login_type' not in st.session_state:
         st.session_state['login_type'] = None

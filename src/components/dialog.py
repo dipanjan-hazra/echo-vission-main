@@ -17,6 +17,7 @@ def create_subject_dialog(teacher_id):
             try:
                 create_subject(sub_id,sub_name,section,teacher_id,join_code)
                 st.toast(f"📙- {sub_name} create successfully!")
+                st.rerun()
             except Exception as e:
                error_msg = str(e)
                if "duplicate key value violates unique constraint" in error_msg:
