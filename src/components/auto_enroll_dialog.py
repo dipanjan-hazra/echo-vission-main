@@ -6,6 +6,11 @@ import time
 
 @st.dialog("Quick Enrollment 🔍")
 def auto_enroll_dialog(join_code):
+
+    if 'student_data' not in st.session_state:
+        st.warning("Please login or create an account first. Then  try  any  enrollment  method")
+
+
     student_id =st.session_state.student_data['student_id']
 
     res = supabase.table('subjects').select('subject_id,name').eq('join_code',join_code).execute()
@@ -15,6 +20,7 @@ def auto_enroll_dialog(join_code):
             st.query_params.clear()
             st.rerun()
         return
+    
     subject=res.data[0]
     check = supabase.table('subject_student').select("*").eq('subject_id',subject['subject_id']).eq('student_id',student_id).execute()
 

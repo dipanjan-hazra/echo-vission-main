@@ -37,5 +37,7 @@ def main():
             st.rerun()
         
         if st.session_state.get('is_logged_in') and st.session_state.get('user_role') == 'student':
+            join_code = st.query_params.get('join-code')
+
             auto_enroll_dialog(join_code)
 main()

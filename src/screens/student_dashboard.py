@@ -81,6 +81,11 @@ def student_dashboard():
                     ('✅','Attended',stats['attendend']),
 
                 ],
+                percentage = (
+                    stats['attendend'] / stats['total'] * 100
+                    if stats['total'] > 0
+                    else 0
+                ),
                 footer_callback=unenroll_button
                 )
 
