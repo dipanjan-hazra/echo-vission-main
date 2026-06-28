@@ -1,5 +1,5 @@
 # EchoVision - AI Powered Attendance Management System
-# Live Demon - https://github.com/dipanjan-hazra/echo-vission-main
+# Live Demon - https://echo-vission-main.streamlit.app/
 
 ## Overview
 
